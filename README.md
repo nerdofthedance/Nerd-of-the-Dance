@@ -1,4 +1,4 @@
-# Nerd of the Dance
+# Dance step notation in a music score
 
 
 Some dancers including myself would like to have some means to memorize dance steps. 
