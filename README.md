@@ -7,4 +7,4 @@ and it should be possible to associate the steps with the music.
 
 Below is an easy example of this attempt to meet these goals. The step is taken from Tango Argentino and is called base con cruce, a basic step with a cross. 
 
-![Base con cruce](https://github.com/nerdofthedance/Nerd-of-the-Dance/Tango_Base_con_cruce.png) 
+![Base con cruce](./Tango_Base_con_cruce.png) 
