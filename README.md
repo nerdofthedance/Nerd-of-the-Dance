@@ -9,6 +9,8 @@ Below is an easy example of a notation trying to meet these goals. The step is t
 
 ![Base con cruce](./Tango_Base_con_cruce.png)
 
-# Dependencies
+# Requirements
 
-The notation is based on Liypond.
+The notation is based on Liypond. Download from http://lilypond.org and install as described there. Lilypond runs on Unix, Linux, FreeBSD, MAC OS X, and Windows. Editing is a lot easier if you also install Frescobaldi, an integrated development environment for Lilypond. Download from http://frescobaldi.org/ and install as described there. It also runs on Linux, MAC OS X and on Windows. 
+Other than that there are no requirements.
+
