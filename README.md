@@ -39,6 +39,8 @@ Currently there are two weights, one (thick line) for the foot you are firmly st
 
 There is a discrete number of positions for a foot in the diagram. Currently there are 9 positions from left to right (or west to east) and 9 positions from bottom to top (or south to north), 81 positions combined. There are eight directions for a foot, pointing north, north west, west, south west, south, south east, east, north east. Or, if you prefer the clock, pointing to 12, 10:30, 9, 7:30, 6, 4:30, 3, 1:30. Or, mathematically speaking and taking 0 degree to point to the right (west), the directions are, in degree, 90 , 135, 180, -135, -90, -45, 0, 45. 
 
+![Foot pose encoding](./foot_pose.png)
+
 In some dances the couple more or less stays on one spot (Salsa, Boogie, Rock 'n' Roll), whereas in others the couple moves along a line and sometimes takes a 90° turn (most ballroom dances, Tango Argentino).
 For dances on the spot, a fixed window of the dance floor is OK. For the other dances, as the one in the example, we consider the square to be a window sliding over the dance floor as the couple moves along, but the window does not rotate. 
 
@@ -82,5 +84,25 @@ In detail the string is decoded into the pose and weight informations for the fe
 
 The keywords for the feet are _ll_ for _leader, left foot_, _lr_ for _leader, right foot_, _fl_ for _follower, left foot_ and _fl_ for _follower, right foot_.  The keyword is followed by the valuse _xybw_, where _x_ is position left to right, _y_ is position bottom to top, _b_ (for _beta_) is orientation as described above, and _w_ is the weight. 
 
-Since I don't know Guile, nor have a good ide, I haven't written a descent argument parser yet. Therefore, the argument string __MUST__ respect the positions of these arguments as given in the example, or the parser will crash. 
+In the image above, the follower's right foot is shown, the arguments are _3655_.
 
+Since I don't know Guile, nor have a good IDE, I haven't written a descent argument parser yet. Therefore, the argument string __MUST__ respect the positions of these arguments as given in the example, or the parser will crash. 
+
+# Improvements
+
+## More expressiveness
+
+As time allows, I would like to add more options to express in the pose diagram. These include, but are not limited to, some Tango Argentino poses (there is quite a list in https://en.wikipedia.org/wiki/Figures_of_Argentine_tango). For a start, I would add gancho, voleo, colgada and barrida, than maybe planeo. 
+
+Also, it might be interesting to indicate how high or low the dancers are standing and the shape of the embrace. On the other hand, these are largely implied by the pose, so in the interest of a concise representation that might gain the character of a symbol, maybe less detail is better. This needs to be tried out, I guess. 
+
+## Better code
+
+As mentioned before, I'm not good at Lisp or Scheme or Guile. Being unfamiliar with function definitions or procedure definitions, I produced a lot of bad copy-paste style code. This needs to be fixed.
+
+Also I'm not at all happy with the arguments to the markup function, i.e. that this is a string where the user needs to stick precisely to the positions of the characters in the string. I'd like to change this, but I'm still uncertain which other method to provide the arguments would be most safe and easy to use.
+
+## More examples
+
+After the technical issues are improved, I'd like to turn to the real reason for doing all this and provide more songs along with the dance. 
+The really interesting question is: what is in the music, and how does a couple best express their common feelings when listening to the music together by transfering them to motion. 
