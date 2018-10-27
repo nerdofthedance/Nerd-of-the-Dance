@@ -55,3 +55,32 @@ Poses and durations are discretetized. Of course in a real dance the poses and d
 
 # How to write dance notation
 
+In Lilypond the user can define markups to the notes as graphics in Scheme. To be more precise, the dialect Guile (see https://en.wikipedia.org/wiki/GNU_Guile) is used. 
+
+The tango pose is defined in a Guile function:
+
+```
+#(define-markup-command (tango-pose layout props pose-string)
+  (string?)
+  ....
+  )
+```
+
+The pose diagrams are written in a special stave. Below is the pose in bar 2. The actual musical note in the stave
+is the non printable (silent) break _s_, in this case _s1_. The digit _1_ after the letter _s_ denotes that the value is that of a whole note, it lasts an entire bar (of measure 4/4). It is used to align the tango poses with the music. The Tango pose is a markup to the silent break. The call argument of the markup function is a string (as declared above). 
+
+```
+tango = \relative c'' {
+ \clef percussion
+ s1
+ s1_\markup \tango-pose #'"ll 5304 lr 6309 fl 6749 fr 5744 dur 1  " 
+ ...
+}
+```
+
+In detail the string is decoded into the pose and weight informations for the feet, and the duration of the pose. The duration is the number after the keyword _dur_. It needs to be identical with the duration code for the silent break _s_ .  The duration of _s_ determines the position in the music. The argument to the tango-pose function is interpreted for the graphics. 
+
+The keywords for the feet are _ll_ for _leader, left foot_, _lr_ for _leader, right foot_, _fl_ for _follower, left foot_ and _fl_ for _follower, right foot_.  The keyword is followed by the valuse _xybw_, where _x_ is position left to right, _y_ is position bottom to top, _b_ (for _beta_) is orientation as described above, and _w_ is the weight. 
+
+Since I don't know Guile, nor have a good ide, I haven't written a descent argument parser yet. Therefore, the argument string __MUST__ respect the positions of these arguments as given in the example, or the parser will crash. 
+
