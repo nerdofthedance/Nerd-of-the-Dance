@@ -120,4 +120,4 @@ The really interesting question is: what is in the music, and how does a couple 
 
 # Contact
 
-For questions and comments write to the [nerd of the dance](nerdofthedance@protonmail.com).
+For questions and comments write to the [nerd of the dance](mailto:nerdofthedance@protonmail.com).
