@@ -191,7 +191,7 @@ soprano = \relative c'' {
   a4. b8 c4 a | \break
   g4. a8 b4 g |
   f4. g8 a4 f4 | \break
-  e2  g2 |
+  e2  gis2 |
   a4. b8 c4 a | \break
   g4. a8 b4 g |
   f4. g8 a4 f4 | \break
