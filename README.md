@@ -2,10 +2,12 @@
 
 
 Some dancers including myself would like to have some means to memorize dance steps. 
-For me, a notation should be easy to understand, allow for describing the essential structure of a step and for some little extras
-and it should be possible to associate the steps with the music. 
+There are quite a few suggestions for dance notation. [Manuel Bodirsky](http://www.lix.polytechnique.fr/~bodirsky/tango/notation.pdf) describes a rather concise system of symbols. He also gives an overview of other notations. [Thomas Rasche](http://www.tangonote.com/raschenotation/) uses keyboard characters. For me they both require some effort to learn before I can apply them easily, their level of abstraction is rather high. After learning them they can be written quite quickly. If you want you can easily apply the principles of this code to both of these notations. 
 
-Below is an easy example of a notation trying to meet these goals. The step is taken from Tango Argentino and is called base con cruce, a basic step with a cross. 
+For me, a notation should be intuitively easy to understand, allow for describing the essential structure of a step and for some little extras
+and it should be possible to associate the steps with the music. The burden is shifted from the reader to the author, if you want. This is how dance steps are generally presented to the broad public. 
+
+Below is an easy example of such a notation. The step is taken from Tango Argentino and is called base con cruce, a basic step with a cross. 
 
 ![Base con cruce](./Tango_Base_con_cruce.png)
 
@@ -39,6 +41,8 @@ Currently there are two weights, one (thick line) for the foot you are firmly st
 
 There is a discrete number of positions for a foot in the diagram. Currently there are 9 positions from left to right (or west to east) and 9 positions from bottom to top (or south to north), 81 positions combined. There are eight directions for a foot, pointing north, north west, west, south west, south, south east, east, north east. Or, if you prefer the clock, pointing to 12, 10:30, 9, 7:30, 6, 4:30, 3, 1:30. Or, mathematically speaking and taking 0 degree to point to the right (west), the directions are, in degree, 90 , 135, 180, -135, -90, -45, 0, 45. 
 
+![Foot pose encoding](./foot_pose.png)
+
 In some dances the couple more or less stays on one spot (Salsa, Boogie, Rock 'n' Roll), whereas in others the couple moves along a line and sometimes takes a 90° turn (most ballroom dances, Tango Argentino).
 For dances on the spot, a fixed window of the dance floor is OK. For the other dances, as the one in the example, we consider the square to be a window sliding over the dance floor as the couple moves along, but the window does not rotate. 
 
@@ -62,7 +66,7 @@ The tango pose is defined in a Guile function:
 ```
 #(define-markup-command (tango-pose layout props pose-string)
   (string?)
-  ....
+  ...
   )
 ```
 
@@ -81,6 +85,39 @@ tango = \relative c'' {
 In detail the string is decoded into the pose and weight informations for the feet, and the duration of the pose. The duration is the number after the keyword _dur_. It needs to be identical with the duration code for the silent break _s_ .  The duration of _s_ determines the position in the music. The argument to the tango-pose function is interpreted for the graphics. 
 
 The keywords for the feet are _ll_ for _leader, left foot_, _lr_ for _leader, right foot_, _fl_ for _follower, left foot_ and _fl_ for _follower, right foot_.  The keyword is followed by the valuse _xybw_, where _x_ is position left to right, _y_ is position bottom to top, _b_ (for _beta_) is orientation as described above, and _w_ is the weight. 
+In the image above, the follower's right foot is shown, the arguments are _3655_.
 
-Since I don't know Guile, nor have a good ide, I haven't written a descent argument parser yet. Therefore, the argument string __MUST__ respect the positions of these arguments as given in the example, or the parser will crash. 
+Since I don't know Guile, nor have a good IDE, I haven't written a descent argument parser yet. Therefore, the argument string __MUST__ respect the positions of these arguments as given in the example, or the parser will crash. 
 
+
+# Music
+
+My examples will be dance steps along with Tango Argentino music. 
+However, I don't have time to clarify the rights someone might hold for popular songs.
+Therefore the music to the examples is written by the nerd himself (following  [Chris Mooney's guide](https://composerfocus.com/how-to-write-a-tango/)). The music examples are trivial on purpose so nobody can claim them.
+If someone wants to contribute examples with known songs, please clarify the rights before suggesting. 
+If you bring me the written consent of the rights owner, I may transscribe the song as time allows.
+
+
+# Improvements
+
+## More expressiveness
+
+As time allows, I would like to add more options to express in the pose diagram. These include, but are not limited to, some Tango Argentino poses (there is quite a list in https://en.wikipedia.org/wiki/Figures_of_Argentine_tango). For a start, I would add gancho, voleo, colgada and barrida, than maybe planeo. 
+
+Also, it might be interesting to indicate how high or low the dancers are standing and the shape of the embrace. On the other hand, these are largely implied by the pose, so in the interest of a concise representation that might gain the character of a symbol, maybe less detail is better. This needs to be tried out, I guess. 
+
+## Better code
+
+As mentioned before, I'm not good at Lisp or Scheme or Guile. Being unfamiliar with function definitions or procedure definitions, I produced a lot of bad copy-paste style code. This needs to be fixed.
+
+Also I'm not at all happy with the arguments to the markup function, i.e. that this is a string where the user needs to stick precisely to the positions of the characters in the string. I'd like to change this, but I'm still uncertain which other method to provide the arguments would be most safe and easy to use.
+
+## More examples
+
+After the technical issues are improved, I'd like to turn to the real reason for doing all this and provide more songs along with the dance. 
+The really interesting question is: what is in the music, and how does a couple best express their common feelings when listening to the music together by transfering them to motion. 
+
+# Contact
+
+For questions and comments write to the [nerd of the dance](mailto:nerdofthedance@protonmail.com).
