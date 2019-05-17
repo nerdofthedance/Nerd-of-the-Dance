@@ -32,14 +32,16 @@ The dance notation is somewhat analogous to the music notation. This means that 
 ## Poses and motion
 
 The diagram is like an image of the couple taken from above, showing only the feet. The feet of the leader are drawn with a 
-corner, the feet of the follower look like walking sticks. See the initial diagram in bar 2 in the example above: theitio couple is standing face to face, the leader facing north, the follower facing south (the directions are like the ones of a usual map, north pointing to the top of the page, south to the bottom etc.). 
+corner, the feet of the follower look like walking sticks. See the initial diagram in bar 2 in the example above: the couple is standing face to face, the leader facing north, the follower facing south (the directions are like the ones of a usual map, north pointing to the top of the page, south to the bottom etc.). 
 
 The leader has the weight on the right foot, the follower has the weight on the left foot. 
 The weight on the foot corresponds to the thickness of the line.
 
 Currently there are two weights, one (thick line) for the foot you are firmly standing on and one (thin line) for the foot that is ready to move.
 
-There is a discrete number of positions for a foot in the diagram. Currently there are 9 positions from left to right (or west to east) and 9 positions from bottom to top (or south to north), 81 positions combined. There are eight directions for a foot, pointing north, north west, west, south west, south, south east, east, north east. Or, if you prefer the clock, pointing to 12, 10:30, 9, 7:30, 6, 4:30, 3, 1:30. Or, mathematically speaking and taking 0 degree to point to the right (west), the directions are, in degree, 90 , 135, 180, -135, -90, -45, 0, 45. 
+There is a discrete number of positions for a foot in the diagram. Currently there are 10 positions from left to right (or west to east) and 10 positions from bottom to top (or south to north), 100 positions combined. There are eight directions for a foot, pointing north, north west, west, south west, south, south east, east, north east. Or, if you prefer the clock, pointing to 12, 10:30, 9, 7:30, 6, 4:30, 3, 1:30. Or, mathematically speaking and taking 0 degree to point to the right (west), the directions are, in degree, 90 , 135, 180, -135, -90, -45, 0, 45. 
+
+![Foot pose encoding](./foot_pose.png)
 
 ![Foot pose encoding](./foot_pose.png)
 
